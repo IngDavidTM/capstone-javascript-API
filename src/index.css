@@ -7,6 +7,12 @@ body {
   background-color: rgb(237, 236, 241);
 }
 
+form button {
+  background: none;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
 .container {
   height: 100vh;
   max-width: 60rem;
@@ -213,12 +219,6 @@ form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-form button {
-  background: none;
-  border: 1px solid #000;
-  cursor: pointer;
 }
 
 .commentsContainer {
