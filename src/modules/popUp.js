@@ -29,7 +29,13 @@ const popUp = async (index) => {
   const p2 = document.createElement('p');
   p2.innerHTML = `<strong>Category:</strong> ${specificMeal.strCategory}`;
   div.appendChild(p2);
+  const divDown = document.createElement('a');
+  divDown.href = '#instructions';
+  divDown.className = 'scrollDown';
+  divDown.innerHTML = '<i class="fa-solid fa-circle-chevron-down"></i>';
+  div.appendChild(divDown);
   const p3 = document.createElement('p');
+  p3.id = 'instructions';
   p3.innerHTML = `<strong>Instructions:</strong> ${specificMeal.strInstructions}`;
   div.appendChild(p3);
   const div1 = document.createElement('div');

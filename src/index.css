@@ -265,3 +265,14 @@ textarea {
 .divComments p {
   text-align: left;
 }
+
+.scrollDown {
+  color: #000;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.scrollDown:hover {
+  transition-duration: 0.5s;
+  color: rgb(95, 94, 94);
+}
