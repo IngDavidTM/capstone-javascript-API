@@ -131,3 +131,16 @@ main {
 .btn-liked > button:hover {
   transform: scale(1.08);
 }
+
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 20px #dbdbdb solid;
+}
+
+li:hover {
+  border-bottom: 2px solid #333;
+  font-weight: bold;
+}
