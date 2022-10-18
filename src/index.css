@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: rgb(245, 244, 253);
+  background-color: rgb(237, 236, 241);
 }
 
 .container {
@@ -14,7 +14,7 @@ body {
   display: grid;
   grid-template-columns: 0.3fr 2.4fr 0.3fr;
   grid-template-rows: 0.3fr 2.4fr 0.3fr;
-  gap: 0 0;
+  gap: 0.125rem 0.0125rem;
   grid-auto-flow: row;
   grid-template-areas:
     '. header .'
@@ -40,11 +40,17 @@ header {
   justify-content: space-around;
 }
 
+li {
+  list-style: none;
+  cursor: pointer;
+}
+
 main {
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 0 0;
+  gap: 0.5rem 0.5rem;
   grid-auto-flow: row;
   grid-template-areas:
     '. . .'
@@ -53,9 +59,83 @@ main {
   grid-area: main;
 }
 
-li {
-  list-style: none;
+.card-food {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 0.6fr;
+  grid-template-rows: 2fr 0.4fr 0.2fr;
+  gap: 0;
+  grid-template-areas:
+    'card-img card-img card-img'
+    'card-title card-title card-title'
+    'btn-recipe . btn-liked';
+  border: #dbdbdb 1px solid;
+}
+
+.card-img {
+  overflow: hidden;
+  box-sizing: border-box;
+  grid-area: card-img;
+}
+
+.img-food {
+  width: 100%;
+  min-height: 250px;
+  object-fit: cover;
+}
+
+.card-title {
+  grid-area: card-title;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0.2rem;
+}
+
+.btn-recipe {
+  grid-area: btn-recipe;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0.2rem;
+}
+
+.btn-recipe > button {
+  background: rgb(226, 157, 8);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.1rem 0.4rem;
   cursor: pointer;
+}
+
+.btn-liked > button {
+  background: white;
+  border: 1px solid #dbdbdb;
+  color: rgb(36, 39, 230);
+  font-weight: bold;
+  padding: 0.1rem 0.4rem;
+  cursor: pointer;
+}
+
+.btn-recipe > button:hover {
+  transform: scale(1.08);
+}
+
+.btn-liked {
+  grid-area: btn-liked;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0.2rem;
+}
+
+.btn-liked > button:hover {
+  transform: scale(1.08);
+}
+
+li:hover {
+  border-bottom: 2px solid #333;
+  font-weight: bold;
 }
 
 footer {
@@ -64,9 +144,4 @@ footer {
   justify-content: space-between;
   align-items: center;
   border-top: 20px #dbdbdb solid;
-}
-
-li:hover {
-  border-bottom: 2px solid #333;
-  font-weight: bold;
 }
