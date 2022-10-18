@@ -19,7 +19,6 @@ const displayData = (arr) => {
           </div>     
       `;
     item.id = food.idMeal;
-    // console.log(food);
     board.appendChild(item);
   });
 };
