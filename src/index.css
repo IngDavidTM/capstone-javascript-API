@@ -127,6 +127,11 @@ main {
   cursor: pointer;
 }
 
+form button:hover {
+  transform: scale(1.03);
+  transition-duration: 0.5s;
+}
+
 .btn-recipe > button:hover {
   transform: scale(1.08);
 }
@@ -237,11 +242,6 @@ input,
 textarea {
   padding: 8px;
   border: 1px solid #000;
-}
-
-form button:hover {
-  transform: scale(1.03);
-  transition-duration: 0.5s;
 }
 
 .commentsContainer {
