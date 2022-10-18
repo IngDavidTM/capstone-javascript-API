@@ -187,11 +187,17 @@ footer {
 }
 
 .popUpDiv img {
+  transition-duration: 1s;
   width: 50%;
   height: 50%;
   max-width: 490px;
   max-height: 490px;
   border-radius: 50px;
+}
+
+.popUpDiv img:hover {
+  transform: scale(1.1);
+  transition-duration: 1s;
 }
 
 .popUpDiv p {
@@ -200,6 +206,7 @@ footer {
 }
 
 .buttonX {
+  transition-duration: 0.5s;
   position: sticky;
   border: none;
   font-size: 30px;
