@@ -12,6 +12,11 @@ const popUp = async (index) => {
   const div = document.createElement('div');
   div.className = 'popUpDiv';
   section.appendChild(div);
+  const button = document.createElement('button');
+  button.id = 'buttonX';
+  button.className = 'buttonX';
+  button.innerHTML = '<i class="fa-solid fa-xmark" ></i>';
+  div.appendChild(button);
   const imgs = document.createElement('img');
   imgs.src = meals[index].strMealThumb;
   div.appendChild(imgs);
@@ -27,11 +32,6 @@ const popUp = async (index) => {
   const p3 = document.createElement('p');
   p3.innerHTML = `<strong>Instructions:</strong> ${specificMeal.strInstructions}`;
   div.appendChild(p3);
-  const button = document.createElement('button');
-  button.id = 'buttonX';
-  button.className = 'buttonX';
-  button.innerHTML = '<i class="fa-solid fa-xmark" ></i>';
-  div.appendChild(button);
   const div1 = document.createElement('div');
   div1.className = 'commentsContainer';
   div.appendChild(div1);
