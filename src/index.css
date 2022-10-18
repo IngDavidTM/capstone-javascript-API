@@ -138,10 +138,6 @@ li:hover {
   font-weight: bold;
 }
 
-.btn-liked > button:hover {
-  transform: scale(1.08);
-}
-
 footer {
   grid-area: footer;
   display: flex;
