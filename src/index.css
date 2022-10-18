@@ -8,8 +8,12 @@ body {
 }
 
 form button {
-  background: none;
-  border: 1px solid #000;
+  align-self: center;
+  width: 40%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  color: #000;
   cursor: pointer;
 }
 
@@ -174,8 +178,8 @@ footer {
   max-height: 80vh;
   max-width: 900px;
   overflow: auto;
-  background-color: #fff;
-  border-radius: 6px;
+  background-color: rgb(237, 236, 241);
+  border-radius: 10px;
 }
 
 .popUpDiv::-webkit-scrollbar {
@@ -226,6 +230,18 @@ form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 60%;
+}
+
+input,
+textarea {
+  padding: 8px;
+  border: 1px solid #000;
+}
+
+form button:hover {
+  transform: scale(1.03);
+  transition-duration: 0.5s;
 }
 
 .commentsContainer {
