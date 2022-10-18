@@ -90,6 +90,7 @@ main {
   align-items: flex-start;
   padding: 0.2rem;
 }
+
 .btn-recipe {
   grid-area: btn-recipe;
   display: flex;
@@ -107,6 +108,15 @@ main {
   cursor: pointer;
 }
 
+.btn-liked > button {
+  background: white;
+  border: 1px solid #dbdbdb;
+  color: rgb(36, 39, 230);
+  font-weight: bold;
+  padding: 0.1rem 0.4rem;
+  cursor: pointer;
+}
+
 .btn-recipe > button:hover {
   transform: scale(1.08);
 }
@@ -117,15 +127,6 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   padding: 0.2rem;
-}
-
-.btn-liked > button {
-  background: white;
-  border: 1px solid #dbdbdb;
-  color: rgb(36, 39, 230);
-  font-weight: bold;
-  padding: 0.1rem 0.4rem;
-  cursor: pointer;
 }
 
 .btn-liked > button:hover {
