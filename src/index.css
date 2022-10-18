@@ -15,6 +15,7 @@ form button {
   border: 1px solid #dbdbdb;
   color: #000;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .container {
