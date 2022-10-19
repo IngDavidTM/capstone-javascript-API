@@ -27,22 +27,21 @@ const displayData = async (arr) => {
     const btnLikedElement = item.querySelector('.btn-liked');
     const printLike = (data) => {
       const likesReturned = data.find(
-        (element) => element.item_id === food.idMeal
-      );
+        (element) => element.item_id === food.idMeal);
       btnLikedElement.innerHTML =
-        likesReturned !== undefined
+        likesReturned !==undefined
           ? `<i class="fas fa-heart"></i> (${likesReturned.likes})`
           : '<i class="far fa-heart"></i> (0)';
     };
     getLikesToItems()
       .then(printLike)
-      .catch((e) => console.log(e));
+      .catch((e) => {return e;});
 
     btnLikedElement.addEventListener('click', () => {
       addLikeToItem(food.idMeal);
       getLikesToItems()
         .then(printLike)
-        .catch((e) => console.log(e));
+        .catch((e) => {return e;});
     });
     board.appendChild(item);
   });
