@@ -18,7 +18,7 @@ beforeAll(() => {
     <main class="container-food-cards">
     </main>
     <footer>
-        <h4>&copy; Created by Microverse under CC license</h4>
+      <h4>&copy; Created by Microverse under CC license</h4>
     </footer>
   </div>
   `;
@@ -26,7 +26,7 @@ beforeAll(() => {
 
 describe('Check counter count for all items on page', () => {
   test('The beef selector should signify  (42) ', () => {
-    const beefElement = document.querySelector("li");
+    const beefElement = document.querySelector('li');
     displayCounter(beefElement, 42);
     expect(beefElement.textContent).toEqual('Beef (42)');
   });

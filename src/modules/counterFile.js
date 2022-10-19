@@ -1,5 +1,5 @@
-const  displayCounter = (foodChosen, count) => {
-    foodChosen.innerHTML = `${foodChosen.textContent} (${count})`;
+const displayCounter = (foodChosen, count) => {
+  foodChosen.innerHTML = `${foodChosen.textContent} (${count})`;
 };
 
-export default displayCounter;;
+export default displayCounter;
