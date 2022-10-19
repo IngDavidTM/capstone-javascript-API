@@ -31,13 +31,18 @@ const displayData = (arr) => {
   });
 };
 
-const getAllData = async (url) => {
+const displayCounter = (foodChosen, count) => {
+  foodChosen.innerHTML = `${foodChosen.textContent} (${count})`;
+};
+
+const getAllData = async (url, foodChosen) => {
   const request = new Request(url);
   const response = await fetch(request);
   const responseJson = await response.json();
-  const responsInfo = responseJson.meals;
+  const responseInfo = responseJson.meals;
+  displayCounter(foodChosen, responseInfo.length);
 
-  displayData(responsInfo);
+  displayData(responseInfo);
 };
 
 export { getAllData as default };
