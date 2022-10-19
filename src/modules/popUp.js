@@ -1,6 +1,5 @@
 import addComment from './addComments.js';
 import getComments from './getComments.js';
-import numberOfComments from './counterFileComments.js';
 
 const popSection = document.getElementById('popSection');
 const popUp = async (index) => {
@@ -86,7 +85,6 @@ const popUp = async (index) => {
     }
   });
   await getComments(index);
-  numberOfComments();
 };
 
 export default popUp;

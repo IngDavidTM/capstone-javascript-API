@@ -1,7 +1,6 @@
-const numberOfComments = async () => {
+const numberOfComments = async (count) => {
   const h4 = document.getElementById('numberOfComments');
-  const count = document.querySelectorAll('.listOfComment');
-  h4.innerHTML = `Comments(${count.length})`;
+  h4.innerHTML = `Comments(${count})`;
 };
 
 export default numberOfComments;
