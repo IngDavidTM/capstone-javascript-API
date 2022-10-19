@@ -78,7 +78,7 @@ const popUp = async (index) => {
       error.innerHTML = 'Please fill all the requirements';
       setTimeout(() => {
         error.remove();
-      }, 2000);
+      }, 3000);
       form.appendChild(error);
       document.getElementById('textComment').insertAdjacentElement('afterend', error);
     }

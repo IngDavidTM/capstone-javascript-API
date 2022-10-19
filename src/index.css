@@ -296,6 +296,16 @@ textarea::placeholder {
 }
 
 .error {
+  padding: 10px 0;
   align-self: center;
   color: red;
+  animation-duration: 3s;
+  animation-name: fade-in;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
 }
