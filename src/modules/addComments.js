@@ -1,4 +1,5 @@
 import getComments from './getComments.js';
+import numberOfComments from './counterFileComments.js';
 
 const addComment = async (index, name, comment) => {
   await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/JGerHk43c1Y5J5m1thia/comments', {
@@ -12,7 +13,8 @@ const addComment = async (index, name, comment) => {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-  getComments(index);
+  await getComments(index);
+  numberOfComments();
 };
 
 export default addComment;
