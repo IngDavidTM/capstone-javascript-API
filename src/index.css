@@ -246,6 +246,13 @@ textarea {
   border: 1px solid #000;
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: #000;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+}
+
 .commentsContainer {
   display: flex;
   flex-direction: column;
