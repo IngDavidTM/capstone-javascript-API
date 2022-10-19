@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest",
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
@@ -47,6 +47,11 @@
     "babelrc": "^0.0.7",
     "clean-webpack-plugin": "^4.0.0",
     "jest-environment-jsdom": "^29.2.1",
+    "jsdom": "^20.0.1",
     "lodash": "^4.17.21"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "verbose": true
   }
 }
