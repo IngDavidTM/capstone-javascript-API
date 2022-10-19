@@ -5,6 +5,7 @@ const getComments = async (index) => {
   document.getElementById('divComments').innerHTML = '';
   arr.forEach((element) => {
     const p = document.createElement('p');
+    p.className = 'listOfComment';
     p.innerHTML = `${element.creation_date}  ${element.username}: ${element.comment}`;
     div.appendChild(p);
   });
