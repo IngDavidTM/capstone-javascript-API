@@ -1,3 +1,4 @@
+import addComment from './addComments.js';
 import getComments from './getComments.js';
 
 const popSection = document.getElementById('popSection');
@@ -57,10 +58,30 @@ const popUp = async (index) => {
   h4Add.innerHTML = 'Add a comment';
   div.appendChild(h4Add);
   const form = document.createElement('form');
-  form.innerHTML = '<input type="text" name="name" id="nameF"><textarea name="comment" id="textComment" cols="30" rows="5"></textarea><button id="submit" type="submit">Comment</button>';
+  form.innerHTML = '<input type="text" name="name" id="nameF" placeholder="Your name" maxlength="30"><textarea name="comment" id="textComment" cols="30" rows="5" placeholder="Your insights" maxlength="250"></textarea><button id="submit" type="submit">Comment</button>';
   div.appendChild(form);
   button.addEventListener('click', () => {
     popSection.innerHTML = '';
+  });
+  const submit = document.getElementById('submit');
+  submit.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const nameF = document.getElementById('nameF').value;
+    const commentF = document.getElementById('textComment').value;
+    if (nameF !== '' && commentF !== '') {
+      document.getElementById('nameF').value = '';
+      document.getElementById('textComment').value = '';
+      addComment(index, nameF, commentF);
+    } else {
+      const error = document.createElement('p');
+      error.className = 'error';
+      error.innerHTML = 'Please fill all the requirements';
+      setTimeout(() => {
+        error.remove();
+      }, 3000);
+      form.appendChild(error);
+      document.getElementById('textComment').insertAdjacentElement('afterend', error);
+    }
   });
   getComments(index);
 };

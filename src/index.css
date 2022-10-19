@@ -249,6 +249,15 @@ input,
 textarea {
   padding: 8px;
   border: 1px solid #000;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #000;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
 }
 
 .commentsContainer {
@@ -291,4 +300,19 @@ textarea {
   display: flex;
   width: 80%;
   justify-content: space-around;
+}
+
+.error {
+  padding: 10px 0;
+  align-self: center;
+  color: red;
+  animation-duration: 3s;
+  animation-name: fade-in;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
 }

@@ -1,4 +1,4 @@
-import displayCounter  from './getfoods.js';
+import displayCounter from './getfoods.js';
 
 beforeAll(() => {
   document.body.innerHTML = `  
