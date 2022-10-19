@@ -1,3 +1,4 @@
+import addComment from './addComments.js';
 import getComments from './getComments.js';
 
 const popSection = document.getElementById('popSection');
@@ -61,6 +62,24 @@ const popUp = async (index) => {
   div.appendChild(form);
   button.addEventListener('click', () => {
     popSection.innerHTML = '';
+  });
+  const submit = document.getElementById('submit');
+  submit.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const nameF = document.getElementById('nameF').value;
+    const commentF = document.getElementById('textComment').value;
+    if (nameF !== '' && commentF !== '') {
+      document.getElementById('nameF').value = '';
+      document.getElementById('textComment').value = '';
+      addComment(index, nameF, commentF);
+    } else {
+      const error = document.createElement('p');
+      error.innerHTML = 'Please fill all the requirements';
+      setTimeout(() => {
+        error.remove();
+      }, 2000);
+      div.appendChild(error);
+    }
   });
   getComments(index);
 };
