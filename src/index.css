@@ -294,3 +294,8 @@ textarea::placeholder {
   width: 80%;
   justify-content: space-around;
 }
+
+.error {
+  align-self: center;
+  color: red;
+}

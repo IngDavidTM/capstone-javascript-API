@@ -74,11 +74,13 @@ const popUp = async (index) => {
       addComment(index, nameF, commentF);
     } else {
       const error = document.createElement('p');
+      error.className = 'error';
       error.innerHTML = 'Please fill all the requirements';
       setTimeout(() => {
         error.remove();
       }, 2000);
-      div.appendChild(error);
+      form.appendChild(error);
+      document.getElementById('textComment').insertAdjacentElement('afterend', error);
     }
   });
   getComments(index);
