@@ -7,10 +7,10 @@ const [liBeefElement] = document.querySelectorAll('li');
 let foodChosen = liBeefElement;
 
 liBeefElement.addEventListener('click', () => {
-    foodChosen = liBeefElement;
-    liBeefElement.classList.add('selected');
-    foodChosen.textContent = 'Beef';
-    getAllData(allBeefURL, foodChosen);
-  });
+  foodChosen = liBeefElement;
+  liBeefElement.classList.add('selected');
+  foodChosen.textContent = 'Beef';
+  getAllData(allBeefURL, foodChosen);
+});
 
 getAllData(allBeefURL, foodChosen);
