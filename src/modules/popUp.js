@@ -50,7 +50,7 @@ const popUp = async (index) => {
   div.appendChild(div1);
   const h4 = document.createElement('h4');
   h4.id = 'numberOfComments';
-  h4.innerHTML = 'Comments';
+  h4.innerHTML = 'Comments(0)';
   div1.appendChild(h4);
   const divComments = document.createElement('div');
   divComments.id = 'divComments';
