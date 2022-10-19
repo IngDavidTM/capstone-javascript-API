@@ -1,6 +1,7 @@
 import popUp from './popUp.js';
+import displayCounter from './counterFile.js';
 
-const displayData = (arr) => {
+const displayData = async (arr) => {
   const board = document.querySelector('.container-food-cards');
   board.innerHTML = '';
   arr.forEach((food) => {
@@ -31,18 +32,14 @@ const displayData = (arr) => {
   });
 };
 
-const displayCounter = (foodChosen, count) => {
-  foodChosen.innerHTML = `${foodChosen.textContent} (${count})`;
-};
-
 const getAllData = async (url, foodChosen) => {
   const request = new Request(url);
   const response = await fetch(request);
   const responseJson = await response.json();
   const responseInfo = responseJson.meals;
-  displayCounter(foodChosen, responseInfo.length);
-
-  displayData(responseInfo);
+  await displayData(responseInfo);
+  const itemcount = document.querySelectorAll('article');
+  displayCounter(foodChosen, itemcount.length);
 };
 
 export { getAllData as default };
