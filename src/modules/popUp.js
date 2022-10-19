@@ -1,5 +1,6 @@
 import addComment from './addComments.js';
 import getComments from './getComments.js';
+import numberOfComments from './counterFileComments.js';
 
 const popSection = document.getElementById('popSection');
 const popUp = async (index) => {
@@ -48,7 +49,8 @@ const popUp = async (index) => {
   div1.className = 'commentsContainer';
   div.appendChild(div1);
   const h4 = document.createElement('h4');
-  h4.innerHTML = 'Comments';
+  h4.id = 'numberOfComments';
+  h4.innerHTML = 'Comments(0)';
   div1.appendChild(h4);
   const divComments = document.createElement('div');
   divComments.id = 'divComments';
@@ -83,7 +85,8 @@ const popUp = async (index) => {
       document.getElementById('textComment').insertAdjacentElement('afterend', error);
     }
   });
-  getComments(index);
+  await getComments(index);
+  numberOfComments();
 };
 
 export default popUp;

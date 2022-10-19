@@ -181,6 +181,17 @@ footer {
   background-color: rgb(237, 236, 241);
   border-radius: 10px;
   scroll-behavior: smooth;
+  animation: apear 0.5s;
+}
+
+@keyframes apear {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .popUpDiv::-webkit-scrollbar {
