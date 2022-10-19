@@ -186,6 +186,7 @@ footer {
   overflow: auto;
   background-color: rgb(237, 236, 241);
   border-radius: 10px;
+  scroll-behavior: smooth;
 }
 
 .popUpDiv::-webkit-scrollbar {
@@ -254,16 +255,20 @@ textarea {
 }
 
 .divComments {
+  background-color: #fff;
+  border: 1px solid #000;
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: 5px;
   max-height: 150px;
   overflow: auto;
+  padding: 10px;
 }
 
 .divComments p {
   text-align: left;
+  min-width: 100%;
 }
 
 .scrollDown {

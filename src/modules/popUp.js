@@ -1,3 +1,5 @@
+import getComments from './getComments.js';
+
 const popSection = document.getElementById('popSection');
 const popUp = async (index) => {
   const data = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef');
@@ -60,6 +62,7 @@ const popUp = async (index) => {
   button.addEventListener('click', () => {
     popSection.innerHTML = '';
   });
+  getComments(index);
 };
 
 export default popUp;
