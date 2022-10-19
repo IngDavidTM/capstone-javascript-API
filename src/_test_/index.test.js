@@ -1,4 +1,4 @@
-import { displayCounter } from './modules/counterFiles.js';
+import { displayCounter } from './modules/counterFile.js';
 
 beforeAll(() => {
   document.body.innerHTML = `  
