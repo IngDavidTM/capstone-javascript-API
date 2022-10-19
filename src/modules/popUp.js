@@ -58,7 +58,7 @@ const popUp = async (index) => {
   h4Add.innerHTML = 'Add a comment';
   div.appendChild(h4Add);
   const form = document.createElement('form');
-  form.innerHTML = '<input type="text" name="name" id="nameF"><textarea name="comment" id="textComment" cols="30" rows="5"></textarea><button id="submit" type="submit">Comment</button>';
+  form.innerHTML = '<input type="text" name="name" id="nameF" placeholder="Your name"><textarea name="comment" id="textComment" cols="30" rows="5" placeholder="Your insights"></textarea><button id="submit" type="submit">Comment</button>';
   div.appendChild(form);
   button.addEventListener('click', () => {
     popSection.innerHTML = '';
