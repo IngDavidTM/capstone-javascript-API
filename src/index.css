@@ -186,6 +186,7 @@ footer {
   overflow: auto;
   background-color: rgb(237, 236, 241);
   border-radius: 10px;
+  scroll-behavior: smooth;
 }
 
 .popUpDiv::-webkit-scrollbar {
