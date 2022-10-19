@@ -276,3 +276,9 @@ textarea {
   transition-duration: 0.5s;
   color: rgb(95, 94, 94);
 }
+
+.divP {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+}

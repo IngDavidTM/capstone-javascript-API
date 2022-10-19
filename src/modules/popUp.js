@@ -23,12 +23,15 @@ const popUp = async (index) => {
   const h3 = document.createElement('h3');
   h3.innerHTML = meals[index].strMeal;
   div.appendChild(h3);
+  const divP = document.createElement('div');
+  divP.className = 'divP';
+  div.appendChild(divP);
   const p1 = document.createElement('p');
   p1.innerHTML = `<strong>Area:</strong> ${specificMeal.strArea}`;
-  div.appendChild(p1);
+  divP.appendChild(p1);
   const p2 = document.createElement('p');
   p2.innerHTML = `<strong>Category:</strong> ${specificMeal.strCategory}`;
-  div.appendChild(p2);
+  divP.appendChild(p2);
   const divDown = document.createElement('a');
   divDown.href = '#instructions';
   divDown.className = 'scrollDown';
