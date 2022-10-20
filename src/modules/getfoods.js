@@ -13,7 +13,7 @@ const displayData = async (arr) => {
           <div class='card-title'>
             <h5>${food.strMeal}</h5>
           </div>
-          <button type='button' class='btn-recipe'>Recipe<button>
+          <button type='button' class='btn-recipe'>Recipe</button>
           <div>
           </div>
           <div class='btn-liked'>
@@ -23,7 +23,7 @@ const displayData = async (arr) => {
            <img src="${food.strMealThumb}" class='img-food'>        
           </div>     
       `;
-
+    /* eslint-disable */
     const btnLikedElement = item.querySelector('.btn-liked');
     const printLike = (data) => {
       const likesReturned = data.find(
@@ -47,6 +47,7 @@ const displayData = async (arr) => {
         .catch((e) => {
           return e;
         });
+        /* eslint-enable */
     });
     board.appendChild(item);
   });
