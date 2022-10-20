@@ -1,0 +1,318 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(237, 236, 241);
+}
+
+form button {
+  align-self: center;
+  width: 40%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.container {
+  height: 100vh;
+  max-width: 60rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.3fr 2.4fr 0.3fr;
+  grid-template-rows: 0.3fr 2.4fr 0.3fr;
+  gap: 0.125rem 0.0125rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    '. header .'
+    '. main .'
+    '. footer .';
+}
+
+header {
+  display: flex;
+  align-items: center;
+  grid-area: header;
+  justify-content: space-around;
+}
+
+.nav-bar {
+  display: flex;
+  width: 60%;
+}
+
+.nav-bar-list {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+}
+
+main {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0.5rem 0.5rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    '. . .'
+    '. . .'
+    '. . .';
+  grid-area: main;
+}
+
+.card-food {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 0.6fr;
+  grid-template-rows: 2fr 0.4fr 0.2fr;
+  gap: 0;
+  grid-template-areas:
+    'card-img card-img card-img'
+    'card-title card-title card-title'
+    'btn-recipe . btn-liked';
+  border: #dbdbdb 1px solid;
+}
+
+.card-img {
+  overflow: hidden;
+  box-sizing: border-box;
+  grid-area: card-img;
+}
+
+.img-food {
+  width: 100%;
+  min-height: 250px;
+  object-fit: cover;
+}
+
+.card-title {
+  grid-area: card-title;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0.2rem;
+}
+
+.btn-recipe {
+  background: rgb(221, 21, 21);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.1rem 0.4rem;
+  cursor: pointer;
+}
+
+.btn-liked {
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  background: white;
+  border: none;
+  color: rgb(43, 31, 31);
+  font-weight: bold;
+  font-size: 0.8em;
+  padding: 0.1rem 0.2rem;
+}
+
+.btn-liked > button {
+  background: white;
+  border: 1px solid #dbdbdb;
+  color: rgb(36, 39, 230);
+  font-weight: bold;
+  padding: 0.1rem 0.4rem;
+  cursor: pointer;
+}
+
+form button:hover {
+  transform: scale(1.03);
+  transition-duration: 0.5s;
+}
+
+li:hover {
+  border-bottom: 2px solid #333;
+  font-weight: bold;
+}
+
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 20px #dbdbdb solid;
+}
+
+.selected {
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+}
+
+.popUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(75, 80, 67, 0.616);
+  backdrop-filter: blur(5px);
+}
+
+.popUpDiv {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-height: 80vh;
+  max-width: 900px;
+  overflow: auto;
+  background-color: rgb(237, 236, 241);
+  border-radius: 10px;
+  scroll-behavior: smooth;
+  animation: apear 0.5s;
+}
+
+@keyframes apear {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.popUpDiv::-webkit-scrollbar {
+  display: none;
+}
+
+.popUpDiv > * {
+  padding: 20px;
+}
+
+.popUpDiv img {
+  transition-duration: 1s;
+  width: 50%;
+  height: 50%;
+  max-width: 490px;
+  max-height: 490px;
+  border-radius: 50px;
+}
+
+.popUpDiv img:hover {
+  transform: scale(1.1);
+  transition-duration: 1s;
+}
+
+.popUpDiv p {
+  text-align: center;
+  max-width: 80%;
+}
+
+.buttonX {
+  transition-duration: 0.5s;
+  position: sticky;
+  border: none;
+  font-size: 30px;
+  left: 90%;
+  top: 2%;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.buttonX:hover {
+  color: red;
+  transition-duration: 0.5s;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 60%;
+}
+
+input,
+textarea {
+  padding: 8px;
+  border: 1px solid #000;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #000;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+}
+
+.commentsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 70%;
+}
+
+.divComments {
+  background-color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+  max-height: 150px;
+  overflow: auto;
+  padding: 10px;
+}
+
+.divComments p {
+  text-align: left;
+  min-width: 100%;
+}
+
+.scrollDown {
+  color: #000;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.scrollDown:hover {
+  transition-duration: 0.5s;
+  color: rgb(95, 94, 94);
+}
+
+.divP {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+}
+
+.error {
+  padding: 10px 0;
+  align-self: center;
+  color: red;
+  animation-duration: 3s;
+  animation-name: fade-in;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
