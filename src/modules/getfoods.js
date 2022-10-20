@@ -23,31 +23,22 @@ const displayData = async (arr) => {
            <img src="${food.strMealThumb}" class='img-food'>        
           </div>     
       `;
-    /* eslint-disable */
     const btnLikedElement = item.querySelector('.btn-liked');
     const printLike = (data) => {
       const likesReturned = data.find(
-        (element) => element.item_id === food.idMeal
+        (element) => element.item_id === food.idMeal,
       );
-      btnLikedElement.innerHTML =
-        likesReturned !== undefined
-          ? `<i class="fas fa-heart"></i> (${likesReturned.likes})`
-          : '<i class="far fa-heart"></i> (0)';
+      btnLikedElement.innerHTML = likesReturned !== undefined ? `<i class="fas fa-heart"></i> (${likesReturned.likes})` : '<i class="far fa-heart"></i> (0)';
     };
     getLikesToItems()
       .then(printLike)
-      .catch((e) => {
-        return e;
-      });
+      .catch((e) => e);
 
     btnLikedElement.addEventListener('click', () => {
       addLikeToItem(food.idMeal);
       getLikesToItems()
         .then(printLike)
-        .catch((e) => {
-          return e;
-        });
-        /* eslint-enable */
+        .catch((e) => e);
     });
     board.appendChild(item);
   });
