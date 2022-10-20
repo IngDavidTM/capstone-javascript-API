@@ -103,20 +103,25 @@ main {
 }
 
 .btn-recipe {
-  grid-area: btn-recipe;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  padding: 0.2rem;
-}
-
-.btn-recipe > button {
-  background: rgb(226, 157, 8);
+  background: rgb(221, 21, 21);
   border: none;
   color: white;
   font-weight: bold;
   padding: 0.1rem 0.4rem;
   cursor: pointer;
+}
+
+.btn-liked {
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  background: white;
+  border: none;
+  color: rgb(43, 31, 31);
+  font-weight: bold;
+  font-size: 0.8em;
+  padding: 0.1rem 0.2rem;
 }
 
 .btn-liked > button {
@@ -131,22 +136,6 @@ main {
 form button:hover {
   transform: scale(1.03);
   transition-duration: 0.5s;
-}
-
-.btn-recipe > button:hover {
-  transform: scale(1.08);
-}
-
-.btn-liked {
-  grid-area: btn-liked;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 0.2rem;
-}
-
-.btn-liked > button:hover {
-  transform: scale(1.08);
 }
 
 li:hover {

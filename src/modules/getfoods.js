@@ -1,30 +1,57 @@
 import popUp from './popUp.js';
 import displayCounter from './counterFile.js';
+import { addLikeToItem, getLikesToItems } from './like.js';
 
 const displayData = async (arr) => {
   const board = document.querySelector('.container-food-cards');
   board.innerHTML = '';
   arr.forEach((food) => {
     const item = document.createElement('article');
+    item.id = food.idMeal;
     item.classList.add('card-food');
     item.innerHTML = `
           <div class='card-title'>
             <h5>${food.strMeal}</h5>
           </div>
-          <div class=btn-recipe>
-            <button type='button' class='comments'>Recipe</button>
+          <button type='button' class='btn-recipe'>Recipe</button>
+          <div>
           </div>
           <div class='btn-liked'>
-            <button type='button'>Like</button>
+            Like
           </div>
           <div class='card-img'>
            <img src="${food.strMealThumb}" class='img-food'>        
           </div>     
       `;
-    item.id = food.idMeal;
+    /* eslint-disable */
+    const btnLikedElement = item.querySelector('.btn-liked');
+    const printLike = (data) => {
+      const likesReturned = data.find(
+        (element) => element.item_id === food.idMeal
+      );
+      btnLikedElement.innerHTML =
+        likesReturned !== undefined
+          ? `<i class="fas fa-heart"></i> (${likesReturned.likes})`
+          : '<i class="far fa-heart"></i> (0)';
+    };
+    getLikesToItems()
+      .then(printLike)
+      .catch((e) => {
+        return e;
+      });
+
+    btnLikedElement.addEventListener('click', () => {
+      addLikeToItem(food.idMeal);
+      getLikesToItems()
+        .then(printLike)
+        .catch((e) => {
+          return e;
+        });
+        /* eslint-enable */
+    });
     board.appendChild(item);
   });
-  const buttonComments = document.querySelectorAll('.comments');
+  const buttonComments = document.querySelectorAll('.btn-recipe');
   buttonComments.forEach((element, index) => {
     element.addEventListener('click', () => {
       popUp(index);
