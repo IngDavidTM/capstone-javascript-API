@@ -1,5 +1,6 @@
-const projectID = 'JGerHk43c1Y5J5m1thia';
-const likesLink = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${projectID}/likes/`;
+import { projectID, baseLink } from './getComments.js';
+
+const likesLink = `${baseLink}${projectID}/likes/`;
 
 export const addLikeToItem = async (itemId) => {
   const request = new Request(likesLink);

@@ -1,7 +1,10 @@
 import numberOfComments from './counterFileComments.js';
 
+const projectID = 'JGerHk43c1Y5J5m1thia';
+const baseLink = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
+
 const getComments = async (index) => {
-  const get = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/JGerHk43c1Y5J5m1thia/comments?item_id=item${index}`);
+  const get = await fetch(`${baseLink}${projectID}/comments?item_id=item${index}`);
   const arr = await get.json();
   const div = document.getElementById('divComments');
   document.getElementById('divComments').innerHTML = '';
@@ -16,3 +19,5 @@ const getComments = async (index) => {
 };
 
 export default getComments;
+
+export { projectID, baseLink };
