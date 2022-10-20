@@ -34,8 +34,8 @@ const displayData = async (arr) => {
       .then(printLike)
       .catch((e) => e);
 
-    btnLikedElement.addEventListener('click', () => {
-      addLikeToItem(food.idMeal);
+    btnLikedElement.addEventListener('click', async () => {
+      await addLikeToItem(food.idMeal);
       getLikesToItems()
         .then(printLike)
         .catch((e) => e);
