@@ -5,7 +5,7 @@
 > We built a webpage in which you can see recipes for meals, using API from [Meals DB](https://www.themealdb.com/api.php). Also, you can comment and add likes on each meal.
 
 ### Live GitHub Page
-- https://ingdavidtm.github.io/capstone-javascript-API/dist/
+[Live link](https://ingdavidtm.github.io/capstone-javascript-API/dist/)
 
 ## Project view:
 > Home page view
