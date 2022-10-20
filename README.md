@@ -8,6 +8,13 @@
 - https://ingdavidtm.github.io/capstone-javascript-API/dist/
 
 ## Project view:
+> Home page view
+
+![homepage](https://user-images.githubusercontent.com/50990925/196981805-ba0f29c3-6305-43af-926a-a7eeb2e2af85.png)
+
+> Comment popup view
+
+![cmdsec](https://user-images.githubusercontent.com/50990925/196982371-7d0c91f1-8735-4a98-a376-0eb68c9ee936.png)
 
 
 ## Built With
