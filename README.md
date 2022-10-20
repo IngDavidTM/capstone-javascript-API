@@ -1,47 +1,71 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Capstone-javascript-API
+# Meals webpage
 
-> Using HTML, CSS, JavaScript, Npm and Webpack
-
-
-## Live View
-
-
-## Project Setup:
-
-In the project directory:
-
-Open a terminal or a git bash in the desired directory and run `https://github.com`
-
-### `npm run start`
-
-Runs the app in the development mode.\
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
-
-### `npm run build`
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+> We built a webpage in which you can see recipes for meals, using API from [Meals DB](https://www.themealdb.com/api.php). Also, you can comment and add likes on each meal.
 
 ## Built With
 
-- HTML, CSS, JavaScript, Npm and Webpack, jest
+- HTML
+- CSS
+- JavaScript
+- Webpack
+- Jest
+- APIs
 
 ## Getting Started
 
-To get a local copy up follow these simple example steps.
+### To get a local copy and running the page follow these simple example steps:
+- Click the Code button in the top right corner
+- Download ZIP
+- Unzip the file: capstone-javascript-API.zip
+- Open index.html with your web browser
+### Tests
+- `Webhint`
+- `Stylelint`
+- `ESlint`
+- `Lighthouse`
+- `Unit tests`
+### Setup
+```
+$git clone git@github.com:IngDavidTM/capstone-javascript-API.git
+```
 
-### Prerequisites
+### Live GitHub Page
+- https://ingdavidtm.github.io/capstone-javascript-API/dist/
 
-- GIT, NODE, NPM
+## Authors
 
-👤 **Author1**
+👤 **David Tamayo**
+
+- GitHub: [@IngDavidTM](https://github.com/IngDavidTM)
+- Twitter: [@David5TM](https://twitter.com/David5TM)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ing-david-tamayo)
+
+👤 **Shedrack Sunday**
 
 - GitHub: [@ShedrackSunday](https://github.com/ShedrackSunday)
 - Twitter: [@DeleSundayS](https://twitter.com/ShedrackSunday)
 - LinkedIn: [ShedrckSunday](https://linkedin.com/in/ShedrackSunday)
 
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+Contact me: david.tamayo1112@gmail.com
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Microverse
+- API from [Meals DB](https://www.themealdb.com/api.php)
+
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./LICENSE) licensed.
