@@ -4,10 +4,12 @@ import { updateCategoryCount } from '../utils/counters.js';
 import showMealModal from './showMealModal.js';
 
 const buildLikeMarkup = (likesCount) => {
-  if (likesCount > 0) {
-    return `<i class="fas fa-heart"></i> (${likesCount})`;
-  }
-  return '<i class="far fa-heart"></i> (0)';
+  const iconClass = likesCount > 0 ? 'fas fa-heart' : 'far fa-heart';
+  const label = likesCount === 1 ? 'like' : 'likes';
+  return `
+    <i class="${iconClass}" aria-hidden="true"></i>
+    <span>${likesCount} ${label}</span>
+  `;
 };
 
 const refreshLikeDisplay = (button, likesMap, itemId) => {
@@ -20,21 +22,25 @@ const createMealCard = (meal, likesMap, index) => {
   card.id = meal.idMeal;
   card.classList.add('card-food');
   card.innerHTML = `
-    <div class='card-title'>
-      <h5>${meal.strMeal}</h5>
-    </div>
-    <button type='button' class='btn-recipe'>Recipe</button>
-    <div></div>
-    <div class='btn-liked'>
-      Like
-    </div>
     <div class='card-img'>
-      <img src="${meal.strMealThumb}" class='img-food'>
+      <img src="${meal.strMealThumb}" class='img-food' alt='${meal.strMeal} meal image'>
+    </div>
+    <div class='card-body'>
+      <div class='card-title'>
+        <h5>${meal.strMeal}</h5>
+      </div>
+      <div class='card-footer'>
+        <div class='btn-group'>
+          <button type='button' class='btn-recipe'>View recipe</button>
+          <button type='button' class='btn-liked'>Like</button>
+        </div>
+      </div>
     </div>
   `;
 
   const likeButton = card.querySelector('.btn-liked');
   refreshLikeDisplay(likeButton, likesMap, meal.idMeal);
+  likeButton.setAttribute('aria-label', `Give a like to ${meal.strMeal}`);
 
   likeButton.addEventListener('click', async () => {
     await registerLike(meal.idMeal);
@@ -44,6 +50,7 @@ const createMealCard = (meal, likesMap, index) => {
   });
 
   const recipeButton = card.querySelector('.btn-recipe');
+  recipeButton.setAttribute('aria-label', `Open recipe modal for ${meal.strMeal}`);
   recipeButton.addEventListener('click', () => {
     showMealModal(meal, index);
   });
