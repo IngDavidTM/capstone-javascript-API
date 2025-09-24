@@ -1,16 +1,18 @@
 import './index.css';
-import getAllData from './modules/getfoods.js';
+import { DEFAULT_CATEGORY } from './constants/api.js';
+import renderMealsForCategory from './ui/renderMeals.js';
 
-const allBeefURL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef';
+const [beefCategory] = document.querySelectorAll('li');
+let activeCategoryElement = beefCategory;
 
-const [liBeefElement] = document.querySelectorAll('li');
-let foodChosen = liBeefElement;
+const loadDefaultCategory = () => {
+  activeCategoryElement = beefCategory;
+  activeCategoryElement.dataset.label = DEFAULT_CATEGORY;
+  activeCategoryElement.classList.add('selected');
+  activeCategoryElement.textContent = DEFAULT_CATEGORY;
+  renderMealsForCategory(DEFAULT_CATEGORY, activeCategoryElement);
+};
 
-liBeefElement.addEventListener('click', () => {
-  foodChosen = liBeefElement;
-  liBeefElement.classList.add('selected');
-  foodChosen.textContent = 'Beef';
-  getAllData(allBeefURL, foodChosen);
-});
+beefCategory.addEventListener('click', loadDefaultCategory);
 
-getAllData(allBeefURL, foodChosen);
+loadDefaultCategory();

@@ -1,5 +1,4 @@
-import displayCounter from '../modules/counterFile.js';
-import numberOfComments from '../modules/counterFileComments.js';
+import { updateCategoryCount, updateCommentsCount } from '../utils/counters.js';
 
 beforeAll(() => {
   document.body.innerHTML = `  
@@ -35,16 +34,17 @@ beforeAll(() => {
 });
 
 describe('Check counter all item function', () => {
-  test('Should be show Beef (42) ', () => {
+  test('Should be show Beef (42)', () => {
     const beefElement = document.querySelector('li');
-    displayCounter(beefElement, 42);
+    beefElement.dataset.label = 'Beef';
+    updateCategoryCount(beefElement, 42);
     expect(beefElement.textContent).toEqual('Beef (42)');
   });
 });
 
 describe('Check counter all the comments', () => {
-  test('Should be show Comments(29) ', () => {
-    numberOfComments(29);
+  test('Should be show Comments(29)', () => {
+    updateCommentsCount(29);
     const comments = document.getElementById('numberOfComments');
     expect(comments.textContent).toEqual('Comments(29)');
   });
