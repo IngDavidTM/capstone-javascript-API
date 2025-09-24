@@ -3,6 +3,7 @@ import { fetchCommentsForItem, submitCommentForItem } from '../services/comments
 import { updateCommentsCount } from '../utils/counters.js';
 
 const popSection = document.getElementById('popSection');
+let activeEscHandler = null;
 
 const renderComments = (container, comments) => {
   container.innerHTML = '';
@@ -25,15 +26,22 @@ const createValidationError = (form) => {
   }, 3000);
 };
 
-const attachCloseHandler = (button) => {
-  button.addEventListener('click', () => {
-    if (popSection) {
-      popSection.innerHTML = '';
-    }
-  });
+const closeModal = () => {
+  if (popSection) {
+    popSection.innerHTML = '';
+  }
+  document.body.style.overflow = '';
+  if (activeEscHandler) {
+    document.removeEventListener('keydown', activeEscHandler);
+    activeEscHandler = null;
+  }
 };
 
-const showMealModal = async (meal, index) => {
+const attachCloseHandler = (button) => {
+  button.addEventListener('click', closeModal);
+};
+
+const showMealModal = async (meal, itemIdentifier = meal.idMeal) => {
   if (!popSection) {
     return;
   }
@@ -41,6 +49,7 @@ const showMealModal = async (meal, index) => {
   const mealDetails = await fetchMealDetails(meal.idMeal);
 
   popSection.innerHTML = '';
+  document.body.style.overflow = 'hidden';
 
   const section = document.createElement('section');
   section.className = 'popUp';
@@ -49,6 +58,20 @@ const showMealModal = async (meal, index) => {
   const wrapper = document.createElement('div');
   wrapper.className = 'popUpDiv';
   section.appendChild(wrapper);
+
+  section.addEventListener('click', (event) => {
+    if (event.target === section) {
+      closeModal();
+    }
+  });
+
+  activeEscHandler = (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeModal();
+    }
+  };
+  document.addEventListener('keydown', activeEscHandler);
 
   const closeButton = document.createElement('button');
   closeButton.id = 'buttonX';
@@ -116,7 +139,7 @@ const showMealModal = async (meal, index) => {
   `;
   wrapper.appendChild(form);
 
-  const itemId = `item${index}`;
+  const itemId = itemIdentifier ?? meal.idMeal;
 
   const loadComments = async () => {
     const comments = await fetchCommentsForItem(itemId);

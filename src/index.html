@@ -4,20 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a12691952c.js" crossorigin="anonymous"></script>
-    <title>Meals</title>
+    <title>Meals Explorer</title>
 </head>
 <body>
     <div class="container">
         <header>
             <div class="logo">
-                <h1>Beef Meals</h1>
+                <h1>Meals Explorer</h1>
+                <p class="logo-copy">Discover recipes, track likes and connect with chefs around the world.</p>
             </div>
+            <section class="hero-controls">
+                <form id="searchByNameForm" class="hero-control hero-control--search" autocomplete="off">
+                    <label for="searchByNameInput">Search meal by name</label>
+                    <div class="hero-control__input">
+                        <input type="text" id="searchByNameInput" name="meal" placeholder="Try “Arrabiata”" aria-label="Search meal by name">
+                        <button type="submit">Search</button>
+                    </div>
+                </form>
+                <div class="hero-control hero-control--select hero-control--select-area">
+                    <label for="areaFilter">Filter by area</label>
+                    <div class="hero-control__input hero-control__input--select">
+                        <select id="areaFilter" name="area">
+                            <option value="">Any area</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="hero-control hero-control--select hero-control--select-ingredient">
+                    <label for="ingredientFilter">Filter by ingredient</label>
+                    <div class="hero-control__input hero-control__input--select">
+                        <select id="ingredientFilter" name="ingredient">
+                            <option value="">Any ingredient</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" id="randomMealButton" class="hero-control hero-control--action" aria-label="Show a random meal">
+                    <span>Surprise me</span>
+                </button>
+            </section>
+            <p class="results-context" id="resultsContext">Explore our latest selections.</p>
             <nav class="nav-bar">
-                <ul class="nav-bar-list">
-                    <li class="selected">Beef</li>
-                    <li>Pasta</li>
-                    <li>SeaFood</li>
-                </ul>
+                <ul class="nav-bar-list" id="categoryList"></ul>
             </nav>
         </header>
         <main class="container-food-cards">

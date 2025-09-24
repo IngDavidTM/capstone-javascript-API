@@ -3,6 +3,8 @@ import { fetchLikesSnapshot, registerLike } from '../services/likesService.js';
 import { updateCategoryCount } from '../utils/counters.js';
 import showMealModal from './showMealModal.js';
 
+const board = document.querySelector('.container-food-cards');
+
 const buildLikeMarkup = (likesCount) => {
   const iconClass = likesCount > 0 ? 'fas fa-heart' : 'far fa-heart';
   const label = likesCount === 1 ? 'like' : 'likes';
@@ -17,7 +19,7 @@ const refreshLikeDisplay = (button, likesMap, itemId) => {
   button.innerHTML = buildLikeMarkup(likesCount);
 };
 
-const createMealCard = (meal, likesMap, index) => {
+const createMealCard = (meal, likesMap) => {
   const card = document.createElement('article');
   card.id = meal.idMeal;
   card.classList.add('card-food');
@@ -52,7 +54,7 @@ const createMealCard = (meal, likesMap, index) => {
   const recipeButton = card.querySelector('.btn-recipe');
   recipeButton.setAttribute('aria-label', `Open recipe modal for ${meal.strMeal}`);
   recipeButton.addEventListener('click', () => {
-    showMealModal(meal, index);
+    showMealModal(meal, meal.idMeal);
   });
 
   return card;
@@ -60,26 +62,71 @@ const createMealCard = (meal, likesMap, index) => {
 
 const buildLikesMap = (likesArray) => new Map(likesArray.map((item) => [item.item_id, item.likes]));
 
-const renderMealsForCategory = async (category, categoryElement) => {
-  const board = document.querySelector('.container-food-cards');
+const renderEmptyState = (message) => {
   if (!board) {
     return;
   }
+  board.innerHTML = '';
+  const wrapper = document.createElement('div');
+  wrapper.className = 'empty-state';
+  const paragraph = document.createElement('p');
+  paragraph.textContent = message;
+  wrapper.appendChild(paragraph);
+  board.appendChild(wrapper);
+};
 
-  const [meals, likesSnapshot] = await Promise.all([
-    fetchMealsByCategory(category),
-    fetchLikesSnapshot(),
-  ]);
+const renderMealCollection = (meals, likesMap, emptyMessage) => {
+  if (!board) {
+    return 0;
+  }
 
-  const likesMap = buildLikesMap(likesSnapshot);
+  if (!meals.length) {
+    renderEmptyState(emptyMessage);
+    return 0;
+  }
+
   board.innerHTML = '';
 
-  meals.forEach((meal, index) => {
-    const card = createMealCard(meal, likesMap, index);
+  meals.forEach((meal) => {
+    const card = createMealCard(meal, likesMap);
     board.appendChild(card);
   });
 
-  updateCategoryCount(categoryElement, meals.length);
+  return meals.length;
 };
+
+const renderMealsWithLikes = async (meals, categoryElement, emptyMessage) => {
+  const normalizedMeals = Array.isArray(meals) ? meals : [];
+  let likesSnapshot = [];
+  try {
+    likesSnapshot = await fetchLikesSnapshot();
+  } catch (error) {
+    likesSnapshot = [];
+  }
+  const likesMap = buildLikesMap(likesSnapshot);
+  const renderedCount = renderMealCollection(normalizedMeals, likesMap, emptyMessage);
+
+  if (categoryElement) {
+    updateCategoryCount(categoryElement, renderedCount);
+  }
+
+  return renderedCount;
+};
+
+const renderMealsForCategory = async (category, categoryElement) => {
+  const meals = await fetchMealsByCategory(category);
+  return renderMealsWithLikes(
+    meals,
+    categoryElement,
+    `No meals found for ${category}.`
+  );
+};
+
+export const renderMealsFromList = async (meals, options = {}) => {
+  const { highlightElement = null, emptyMessage = 'No meals to show right now.' } = options;
+  return renderMealsWithLikes(meals, highlightElement, emptyMessage);
+};
+
+export const renderEmptyMealsState = (message) => renderEmptyState(message);
 
 export default renderMealsForCategory;
